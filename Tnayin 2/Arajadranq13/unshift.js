@@ -1,8 +1,13 @@
 "use strict"
 
-Array.prototype.unshiftCustom = function (...elements) {
-  for (let i = elements.length - 1; i >= 0; i--) {
-    this.splice(0, 0, elements[i]);
+function customShift(array) {
+  if (array.length === 0) {
+    return undefined;
   }
-  return this.length;
-};
+  const shiftedValue = array[0];
+  const newArray = [];
+  for (let i = 1; i < array.length; i++) {
+    newArray.push(array[i]);
+  }
+  return shiftedValue;
+}

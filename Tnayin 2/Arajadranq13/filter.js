@@ -1,12 +1,11 @@
 "use strict"
 
-Array.prototype.filterCustom = function (callback) {
+function customFilter(array, callback) {
   const newArray = [];
-  for (let i = 0; i < this.length; i++) {
-    if (callback(this[i], i, this)) {
-      newArray.push(this[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      newArray.push(array[i]);
     }
   }
   return newArray;
-};
-
+}

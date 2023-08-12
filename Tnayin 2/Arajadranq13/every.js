@@ -1,10 +1,10 @@
 "use strict"
 
-Array.prototype.everyCustom = function (callback) {
-  for (let i = 0; i < this.length; i++) {
-    if (!callback(this[i], i, this)) {
+function customEvery(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (!callback(array[i], i, array)) {
       return false;
     }
   }
   return true;
-};
+}

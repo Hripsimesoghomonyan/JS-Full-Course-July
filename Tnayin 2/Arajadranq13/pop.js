@@ -1,8 +1,12 @@
 "use strict"
-
-Array.prototype.popCustom = function () {
-  if (this.length === 0) return undefined;
-  const poppedElement = this[this.length - 1];
-  this.splice(this.length - 1, 1);
-  return poppedElement;
-};
+function customPop(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  const poppedValue = array[array.length - 1];
+  const newArray = [];
+  for (let i = 0; i < array.length - 1; i++) {
+    newArray.push(array[i]);
+  }
+  return poppedValue;
+}
