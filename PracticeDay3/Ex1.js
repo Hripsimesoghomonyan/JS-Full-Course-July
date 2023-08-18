@@ -1,4 +1,6 @@
 "use strict"
+
+
 function sumRow(row) {
     return row.reduce((acc, val) => acc + val, 0);
   }
@@ -8,7 +10,7 @@ function sumRow(row) {
       return -1;
     }
   
-    let largestSum = -Number.NEGATIVE_INFINITY;
+    let largestSum = 0;
     let indexOfLargestSum = -1;
   
     for (let i = 0; i < matrix.length; i++) {
@@ -28,7 +30,8 @@ function sumRow(row) {
   const matrix = [
     [1, 2, 3],
     [4, 5, 6],
-    [7, 8, 9]
+    [7, 8, 9],
+    [10, 11, 12]
   ];
   
   const indexOfLargestSum = findIndexOfLargestSum(matrix);
