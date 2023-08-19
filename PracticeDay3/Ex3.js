@@ -4,7 +4,6 @@ function findWordInMatrix(matrix, word) {
 
   for (let i = 0; i < n; i++) {
       for (let j = 0; j < m; j++) {
-          // Այստեղ մտածել լինի արդյունքը որպես false
           if (searchWord(matrix, word, i, j, 0)) {
               return true;
           }
@@ -15,7 +14,6 @@ function findWordInMatrix(matrix, word) {
 }
 
 function searchWord(matrix, word, row, col, index) {
-  // Կատարել սահմանված սահմանից դուրս չգալու
   if (
       row < 0 ||
       col < 0 ||
@@ -25,15 +23,15 @@ function searchWord(matrix, word, row, col, index) {
       return false;
   }
 
-  // Կատարել բառի գործողությունը
   if (matrix[row][col] === word[index]) {
       if (index === word.length - 1) {
-          return true; // Բառը գտնվել է
+          return true; 
       }
 
-      // Գտնել աջ, ձախ, վերը կամ ներքև
+
+      
       const temp = matrix[row][col];
-      matrix[row][col] = ''; // Խաչառեք եղած տառը, որպեսզի չեղարկի հաջորդական ուղղեցումը
+      matrix[row][col] = ''; 
       const found =
           searchWord(matrix, word, row + 1, col, index + 1) ||
           searchWord(matrix, word, row - 1, col, index + 1) ||
