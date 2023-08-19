@@ -1,65 +1,37 @@
-function findWordInMatrix(matrix, word) {
+function findLargestSubmatrix(matrix, k) {
   const n = matrix.length;
-  const m = matrix[0].length;
+  let maxSubmatrixSize = 0;
 
-  for (let i = 0; i < n; i++) {
-      for (let j = 0; j < m; j++) {
-          // Այստեղ մտածել լինի արդյունքը որպես false
-          if (searchWord(matrix, word, i, j, 0)) {
-              return true;
+  // Գտնել ամենամեծ ներդրված kxk մատրիցայի երկարթյունը
+  for (let i = 0; i <= n - k; i++) {
+      for (let j = 0; j <= n - k; j++) {
+          let sum = 0;
+
+          // Հաշվել kxk մատրիցայի գումարը
+          for (let row = i; row < i + k; row++) {
+              for (let col = j; col < j + k; col++) {
+                  sum += matrix[row][col];
+              }
           }
+
+          // Թարմացնել ամենամեծ երկարթյունը
+          maxSubmatrixSize = Math.max(maxSubmatrixSize, sum);
       }
   }
 
-  return false;
+  return maxSubmatrixSize;
 }
 
-function searchWord(matrix, word, row, col, index) {
-  // Կատարել սահմանված սահմանից դուրս չգալու
-  if (
-      row < 0 ||
-      col < 0 ||
-      row >= matrix.length ||
-      col >= matrix[0].length
-  ) {
-      return false;
-  }
-
-  // Կատարել բառի գործողությունը
-  if (matrix[row][col] === word[index]) {
-      if (index === word.length - 1) {
-          return true; // Բառը գտնվել է
-      }
-
-      // Գտնել աջ, ձախ, վերը կամ ներքև
-      const temp = matrix[row][col];
-      matrix[row][col] = ''; // Խաչառեք եղած տառը, որպեսզի չեղարկի հաջորդական ուղղեցումը
-      const found =
-          searchWord(matrix, word, row + 1, col, index + 1) ||
-          searchWord(matrix, word, row - 1, col, index + 1) ||
-          searchWord(matrix, word, row, col + 1, index + 1) ||
-          searchWord(matrix, word, row, col - 1, index + 1);
-
-      // Վերադարձնել հետևյալը՝ բառի գտնվել է թե ոչ
-      matrix[row][col] = temp;
-      return found;
-  }
-
-  return false;
-}
-
-// Տողերի մատրիցան
+// Մատրիցայի ներքևի օրինակ
 const matrix = [
-  ['g', 'e', 'e', 'k', 's'],
-  ['f', 'o', 'r', 'g', 'e'],
-  ['u', 'q', 'i', 'z', 'x']
+  [0, 1, 0, 1, 0],
+  [1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 0],
+  [1, 1, 1, 1, 0],
+  [1, 0, 0, 0, 0]
 ];
 
-const word = 'eoq';
+const k = 2;
 
-const hasWord = findWordInMatrix(matrix, word);
-if (hasWord) {
-  console.log(`Հայտնաբերվել է "${word}" բառը`);
-} else {
-  console.log(`Չհայտնաբերվել "${word}" բառը`);
-}
+const largestSubmatrixSize = findLargestSubmatrix(matrix, k);
+console.log(largestSubmatrixSize});
