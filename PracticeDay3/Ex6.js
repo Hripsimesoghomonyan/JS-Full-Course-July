@@ -32,4 +32,4 @@ const matrix = [
 const k = 2;
 
 const largestSubmatrixSize = findLargestSubmatrix(matrix, k);
-console.log(largestSubmatrixSize});
+console.log(largestSubmatrixSize);
