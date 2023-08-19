@@ -1,3 +1,5 @@
+"use strict"
+
 function adjustMatrix(matrix, k) {
   const n = matrix.length;
   const result = [];

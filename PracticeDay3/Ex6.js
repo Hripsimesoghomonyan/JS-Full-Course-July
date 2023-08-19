@@ -1,3 +1,5 @@
+" use strict"
+
 function findLargestSubmatrix(matrix, k) {
   const n = matrix.length;
   let maxSubmatrixSize = 0;

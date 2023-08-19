@@ -1,3 +1,5 @@
+"use strict"
+
 function findWordInMatrix(matrix, word) {
   const n = matrix.length;
   const m = matrix[0].length;
