@@ -40,7 +40,6 @@ function searchWord(matrix, word, row, col, index) {
           searchWord(matrix, word, row, col + 1, index + 1) ||
           searchWord(matrix, word, row, col - 1, index + 1);
 
-      // Վերադարձնել հետևյալը՝ բառի գտնվել է թե ոչ
       matrix[row][col] = temp;
       return found;
   }
@@ -48,7 +47,6 @@ function searchWord(matrix, word, row, col, index) {
   return false;
 }
 
-// Տողերի մատրիցան
 const matrix = [
   ['g', 'e', 'e', 'k', 's'],
   ['f', 'o', 'r', 'g', 'e'],
