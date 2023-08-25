@@ -1,3 +1,4 @@
+"use strict"
 
 function findMinOfRow(row) {
   return Math.min(...row);
