@@ -4,13 +4,13 @@ function createCachingFunction() {
   const cache = {};
 
   return function(input) {
-    if (cache[input] !== undefined) {
-      return cache[input];
-    } else {
+    if (input in cache) {
+      return `${cache[input]} (cached)`;
+    } 
       const result = input * 2; 
       cache[input] = result;
       return result;
-    }
+    
   };
 }
 
