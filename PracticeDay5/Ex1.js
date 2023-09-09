@@ -1,3 +1,5 @@
+"use strict"
+
 const Pagination = {
     array: [],
     pageSize: 0,
