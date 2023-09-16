@@ -11,7 +11,7 @@ function reverseString(s) {
     }
   }
   
-const inputString = "Hello, World!";
+const inputString = "1 2 3 4";
   
 reverseString(inputString);
   
