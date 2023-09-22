@@ -38,7 +38,6 @@ class Account {
     this.id = Account.nextId++;
     this.name = name;
     let _balance = initialBalance;
-
     this.getBalance = () => _balance;
 
     this.setBalance = (newBalance) => {
@@ -71,7 +70,6 @@ class Account {
       }
     };
   }
-
   static identifyAccounts(...accounts) {
     return accounts.map((account) => account.id);
   }
